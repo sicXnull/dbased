@@ -6,7 +6,7 @@
 
 ## Features
 
-- unlimited saved emotes
+- unlimited saved stickers
 
 **... and more coming SOON ???**
 
