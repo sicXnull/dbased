@@ -1,0 +1,97 @@
+{
+  "plugins": [
+    "@typescript-eslint",
+    "json-format"
+  ],
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaVersion": 2018,
+    "project": "./tsconfig.json"
+  },
+  "env": {
+    "node": true,
+    "browser": true,
+    "es6": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "rules": {
+    "prefer-rest-params": "off",
+    "require-atomic-updates": "off",
+    "no-irregular-whitespace": "error",
+    "comma-dangle": [
+      "error",
+      "always-multiline"
+    ],
+    "no-multiple-empty-lines": [
+      "error",
+      {
+        "max": 1,
+        "maxEOF": 0,
+        "maxBOF": 0
+      }
+    ],
+    "no-tabs": [
+      "error"
+    ],
+    "padded-blocks": [
+      "error",
+      "never"
+    ],
+    "no-undef": "error",
+    "@typescript-eslint/camelcase": "off",
+    "@typescript-eslint/no-namespace": "off",
+    "@typescript-eslint/no-this-alias": "off",
+    "@typescript-eslint/no-var-requires": "off",
+    "@typescript-eslint/class-name-casing": "off",
+    "@typescript-eslint/no-empty-interface": "off",
+    "@typescript-eslint/no-use-before-define": "off",
+    "@typescript-eslint/no-non-null-assertion": "off",
+    "@typescript-eslint/interface-name-prefix": "off",
+    "@typescript-eslint/no-parameter-properties": "off",
+    "@typescript-eslint/explicit-member-accessibility": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/member-delimiter-style": [
+      "error",
+      {
+        "multiline": {
+          "delimiter": "none",
+          "requireLast": true
+        },
+        "singleline": {
+          "delimiter": "comma",
+          "requireLast": false
+        }
+      }
+    ],
+    "@typescript-eslint/indent": [
+      "error",
+      2
+    ],
+    "@typescript-eslint/semi": [
+      "error",
+      "never"
+    ],
+    "@typescript-eslint/no-floating-promises": [
+      "error",
+      {
+        "ignoreVoid": true
+      }
+    ],
+    "@typescript-eslint/ban-ts-ignore": "warn"
+  },
+  "overrides": [
+    {
+      "files": [
+        "*.ts",
+        "*.tsx"
+      ],
+      "rules": {
+        "no-undef": "off"
+      }
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+**/dist
+**/node_modules
+**.pem
+**.zip
+**.log
+**.crx
+.env
+yarn-error.log
+.ppage*
+artifacts
