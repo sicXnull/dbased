@@ -4,8 +4,8 @@
 <h2>Dbased. the Dlive companion.</h2>
 
 <div align="">
-<a href=""><img src="media/chromewebstore_badge.png"></a>
-<a href="" disabled><img src="media/firefox-addon-badge.png"></a>
+<a href="/" alt="chrome-webstore-badge"><img src="media/chromewebstore_badge.png"></a>
+<a href="/" alt="firefox-addon-badge"><img src="media/firefox-addon-badge.png"></a>
 </div>
 </div>
 
