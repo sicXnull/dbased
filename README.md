@@ -16,17 +16,17 @@
 **unlimited saved stickers**  
 Save unlimited stickers in your personal collection. Will not affect saved stickers in the mobile app or any client without this extension.
 
-**hide users** (coming soon)  
+(coming soon) **hide users**   
 Hide select users in chats and streamers from the home page.
 
-**DM mentions style chat threads** (coming soon)  
+(coming soon) **DM mentions style chat threads**   
 Show a separate feed for chats that have `@` mentioned you, similar to a twitter thread.
 
 
 
 ### for streamers
 
-**superchat tracker** (coming soon)  
+(coming soon) **superchat tracker**   
 All the functionality of [the dlive superchats site](github.com/zoomerdev/dlive-superchats) but integrated into the dlive website, negating the need to have a separate page open to see a donation chat log.
 
 
