@@ -1,5 +1,9 @@
-import { browser } from 'webextension-polyfill-ts'
+import './config'
 
+import { browser } from 'webextension-polyfill-ts'
+// import {render} from 'react-dom'
+// import { Menu } from './menu'
+// import React from 'react'
 const debug = localStorage.debug ? console.log : function (){/*null*/}
 
 // this is the flossing koala sticker. very close to banning it
@@ -14,6 +18,12 @@ declare global {
 
 debug(window)
 
+// const bar = browser.extension.getURL('/')
+// const foo = __webpack_public_path__
+// console.log({foo, bar})
+
+const MAX_STICKERS_BEFORE_FOLLOW = 30
+
 const LSKeyIsFollowing = '__dbased__isFollowing'
 let isFollowing = localStorage.getItem(LSKeyIsFollowing)
 const getSnackbarEl = () => document.querySelector('.cashin-dialog')?.parentElement
@@ -21,6 +31,7 @@ const getStickerPickerEl = () => document.querySelector('.v-stream-chatroom-inpu
 const getExtraStickers = () => JSON.parse(window.localStorage.getItem('extra-stickers') || '{}')
 const setExtraStickers = (extraStickers: object) => window.localStorage.setItem('extra-stickers', JSON.stringify(extraStickers))
 function onDOMElsMounted() {
+  // render(<Menu/>, document.body.appendChild(document.createElement('div')))
   if (window.___observer) window.___observer.disconnect()
   if (window.___observer2) window.___observer2.disconnect()
 
@@ -54,16 +65,22 @@ function onDOMElsMounted() {
 
       const isFollowing = localStorage.getItem(LSKeyIsFollowing)
 
-      if (!isFollowing) {
+      let afterAppendStickers = function () {/*noop*/}
+
+      if (!isFollowing && Object.keys(extraStickers).length > MAX_STICKERS_BEFORE_FOLLOW) {
         const div = document.createElement('div')
 
         div.innerHTML = `
           <div>enable extra stickers by following <a href="/zoomerdev"><strong style="color:#7dafff">@ZoomerDev</strong></a> (the account will never stream) </div>
           `
 
-        emoteTab.appendChild(div.children[0])
+        afterAppendStickers = () => emoteTab.appendChild(div.children[0])
         
-        return
+        Object.keys(extraStickers).forEach((v, i) => {
+          if (i + 1 > MAX_STICKERS_BEFORE_FOLLOW) {
+            delete extraStickers[v]
+          }
+        })
       }
 
       Object.keys(extraStickers).map((id) => {
@@ -113,6 +130,7 @@ function onDOMElsMounted() {
           })
         })
       })
+      afterAppendStickers()
     }
   })
   window.___observer.observe(getStickerPickerEl(), {subtree:true, childList:true})

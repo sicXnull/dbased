@@ -4,6 +4,9 @@ import icon256 from '../media/logo_small@256'
 
 const isDev = process.env.NODE_ENV !== 'production'
 
+/**
+ * @type {WebExtensionManifest}
+ */
 const config = {
   manifest_version: 2,
   name: 'Dbased - based Dlive',
@@ -17,6 +20,10 @@ const config = {
     scripts: ['background.js'],
     persistent: false,
   },
+
+  web_accessible_resources: [
+    "assets/*",
+  ],
   content_scripts: [
     {
       matches: ['https://dlive.tv/*'],
