@@ -27,7 +27,7 @@ Show a separate feed for chats that have `@` mentioned you, similar to a twitter
 ### for streamers
 
 (coming soon) **superchat tracker**   
-All the functionality of [the dlive superchats site](github.com/zoomerdev/dlive-superchats) but integrated into the dlive website, negating the need to have a separate page open to see a donation chat log.
+All the functionality of [the dlive superchats site](https://github.com/zoomerdev/dlive-superchats) but integrated into the dlive website, negating the need to have a separate page open to see a donation chat log.
 
 
 ## Contributing
