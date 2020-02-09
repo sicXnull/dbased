@@ -10,7 +10,7 @@ const isDev = process.env.NODE_ENV !== 'production'
 const config = {
   manifest_version: 2,
   name: 'Dbased - based Dlive',
-  version: '1.0',
+  version: '1.0.1',
   description: 'add some cool features to Dlive',
   permissions: [
     'storage',
