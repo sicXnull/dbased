@@ -18,7 +18,7 @@ let config = _.defaults(require('./pages.config'), {
   })
   const converter = new showdown.Converter()
   if (!config.meta.image && config.imagePath) {
-    config.meta.image = path.join(config.meta.url, config.imagePath)
+    config.meta.image = config.meta.url + '/' + config.imagePath
   }
   const metas = {
     "twitter:image:src": config.meta.image,
