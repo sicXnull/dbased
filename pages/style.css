@@ -158,3 +158,13 @@ code, kbd, pre, samp {
 * {
   box-sizing: border-box;
 }
+
+
+/* links */
+a {
+  color: #0366d6;
+  text-decoration: none;
+}
+a {
+  background-color: initial;
+}
