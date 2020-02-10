@@ -1,7 +1,7 @@
 <div align="center">
 <img src="media/banner.png"/>
 
-<h2>Dbased. the Dlive companion.</h2>
+<h2>Dbased - the based Dlive companion.</h2>
 
 <div align="">
 <a href="#" alt="chrome-webstore-badge"><img src="media/chromewebstore_badge.png"></a>
@@ -10,7 +10,7 @@
 </div>
 
 ## Features
-![](/media/screenshot.png)
+![](media/screenshot.png)
 
 ### for users
 **unlimited saved stickers**  
