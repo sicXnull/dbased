@@ -1,7 +1,7 @@
 module.exports = {
   faviconPath:'./../media/logo_small@64.png',
   stylePath:'./style.css',
-  imagePath: "../media/banner.png",
+  imagePath: "../media/meta-image.png",
   githubUrl:"https://github.com/zoomerdev/dbased",
   title: 'Dbased',
   meta: {
