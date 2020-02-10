@@ -2,7 +2,7 @@
 <img src="media/banner.png"/>
 
 <p>by 
-<img style="border-radius:50%;vertical-align:middle" height="24" src="https://pbs.twimg.com/profile_images/1223786923841531904/1fZ-Mu06_normal.jpg">&nbsp;<a rel="noopener noreferrer" target="_blank" href="https://twitter.com/Zoomer_Dev">@Zoomer_Dev</a></p>
+<img style="border-radius:50%;vertical-align:middle" height="24" src="https://pbs.twimg.com/profile_images/1223786923841531904/1fZ-Mu06_normal.jpg">&nbsp;<a rel="noopener noreferrer" target="_blank" href="https://twitter.com/Zoomer_Dev">@zoomer_dev</a></p>
 <h2>Dbased - the based Dlive companion</h2>
 
 <div align="">
