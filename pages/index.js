@@ -35,8 +35,10 @@ let config = _.defaults(require('./pages.config'), {
   }
   const metaOpenGraph = _.map(metas, (val, key) => {
     if (!val) return ''
-    return `<meta name="${key}" content="${val}">`
-  }).reduce((a, b) => a+b, '')
+    let prefix = 'property'
+    if (key.startsWith('twitter')) prefix = 'name'
+    return `<meta ${prefix}="${key}" content="${val}">`
+  }).reduce((a, b) => a+'\n'+b, '')
   converter.setFlavor('github')
   const [markdownText, templateHTML] = await Promise.all([
     readText(config.readmePath),
