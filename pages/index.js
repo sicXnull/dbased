@@ -7,6 +7,7 @@ let config = _.defaults(require('./pages.config'), {
   outputPath:  '../index.html',
   readmePath: '../README.md',
   templatePath: './template.html',
+  meta: {},
 })
 ;(async function () {
   config = _.mapValues(config, (val, key) => {
@@ -16,6 +17,23 @@ let config = _.defaults(require('./pages.config'), {
     return val
   })
   const converter = new showdown.Converter()
+  const metas = {
+    "twitter:image:src": config.meta.image,
+    "twitter:site":config.meta.twitterHandle,
+    "twitter:card": "summary_large_image",
+    "twitter:title": config.title,
+    "twitter:description": config.meta.description,
+    "og:image": config.meta.image,
+    "og:site_name": config.title,
+    "og:type": 'object',
+    "og:title": config.title,
+    "og:url": config.meta.url,
+    "og:description": config.meta.description,
+  }
+  const metaOpenGraph = _.map(metas, (val, key) => {
+    if (!val) return ''
+    return `<meta name="${key}" content="${val}">`
+  }).reduce((a, b) => a+b, '')
   converter.setFlavor('github')
   const [markdownText, templateHTML] = await Promise.all([
     readText(config.readmePath),
@@ -23,7 +41,7 @@ let config = _.defaults(require('./pages.config'), {
   ])
   const resultHTML = converter.makeHtml(markdownText.replace(/## Contributing[\n\S\s]*?((\n## )|$)/s, "$2"))
   const compile = _.template(templateHTML)
-  const compiledHTML = compile({body: resultHTML, ...config})
+  const compiledHTML = compile({body: resultHTML, metaOpenGraph, ...config})
   await fs.writeFile(config.outputPath, compiledHTML)
 })().then(console.log).catch(console.error)
 
