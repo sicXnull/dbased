@@ -5,7 +5,7 @@
 
 <div align="">
 <a href="https://chrome.google.com/webstore/detail/dbased-based-dlive/bjnemjdjapmakafpckmbdanhglffgpoc" alt="chrome-webstore-badge"><img src="media/chromewebstore_badge.png"></a>
-<a href="#" alt="firefox-addon-badge"><img src="media/firefox-addon-badge.png"></a>
+<a href="https://addons.mozilla.org/en-US/firefox/addon/dbased-based-dlive/" alt="firefox-addon-badge"><img src="media/firefox-addon-badge.png"></a>
 </div>
 </div>
 
