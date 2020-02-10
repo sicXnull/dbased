@@ -1,0 +1,22 @@
+name: Node.js CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: NodeJS
+      uses: actions/setup-node@v1
+      with:
+        node-version: 12.x
+    - run: yarn install --frozen-lockfile
+    - run: node pages
+    - run: git config user.name 'zoomerdev[CI]'
+    - run: git config user.email '59863739+zoomerdev@users.noreply.github.com'
+    - run: git add index.html; git commit -m '[deploy]' && git push origin master
+      env:
+        CI: true
