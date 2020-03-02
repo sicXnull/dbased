@@ -7,6 +7,7 @@ let config = _.defaults(require('./pages.config'), {
   outputPath:  '../index.html',
   readmePath: '../README.md',
   templatePath: './template.html',
+  baseStylePath: './baseStyle.css',
   meta: {},
 })
 ;(async function () {
@@ -33,6 +34,7 @@ let config = _.defaults(require('./pages.config'), {
     "og:url": config.meta.url,
     "og:description": config.meta.description,
   }
+
   const metaOpenGraph = _.map(metas, (val, key) => {
     if (!val) return ''
     let prefix = 'property'
@@ -44,12 +46,21 @@ let config = _.defaults(require('./pages.config'), {
     readText(config.readmePath),
     readText(config.templatePath),
   ])
-  const resultHTML = converter.makeHtml(markdownText.replace(/## Contributing[\n\S\s]*?((\n## )|$)/s, "$2"))
+  const resultHTML = converter.makeHtml(cleanseMarkdown(markdownText))
   const compile = _.template(templateHTML)
   const compiledHTML = compile({body: resultHTML, metaOpenGraph, ...config})
-  await fs.writeFile(config.outputPath, compiledHTML)
+  await fs.writeFile(config.outputPath, cleanseResultHTML(compiledHTML))
 })().then(console.log).catch(console.error)
 
 async function readText (path) {
   return (await fs.readFile(path)).toString()
+}
+
+function cleanseMarkdown (markdownText) {
+  return markdownText.replace(/## Contributing[\n\S\s]*?((\n## )|$)/s, "$2")
+    .replace(/\[(coming soon)\]/g, `{{{$1}}}`)
+}
+
+function cleanseResultHTML (htmlText) {
+  return htmlText.replace(/\{\{\{(.*?)\}\}\}/g, `<span class="badge-coming-soon">$1</span>`)
 }
